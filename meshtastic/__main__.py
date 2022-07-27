@@ -501,6 +501,8 @@ def onConnected(interface):
             for pref in (args.ch_set or []):
                 if pref[0] == "psk":
                     ch.settings.psk = meshtastic.util.fromPSK(pref[1])
+                elif pref[0] == "name":
+                    ch.settings.name = pref[1]
                 else:
                     setPref(ch.settings, pref[0], pref[1])
                 enable = True  # If we set any pref, assume the user wants to enable the channel
